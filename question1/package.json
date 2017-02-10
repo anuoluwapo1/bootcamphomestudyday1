@@ -1,0 +1,20 @@
+{
+  "name": "bootcamphomestudyday1",
+  "version": "1.0.0",
+  "description": "Bootcamp Homestudy Day 1 solutions - A program to compare and return result based on arguments",
+  "main": "app/library.js",
+  "scripts": {
+    "test": "jasmine tests/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuonifade/bootcamphomestudyday1.git"
+  },
+  "author": "Anuoluwapo Onifade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anuonifade/bootcamphomestudyday1/issues"
+  },
+  "homepage": "https://github.com/anuonifade/bootcamphomestudyday1#readme"
+  "dependencies"
+}

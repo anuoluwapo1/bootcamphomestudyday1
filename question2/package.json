@@ -1,0 +1,19 @@
+{
+  "name": "bootcamphomestudyday1",
+  "version": "1.0.0",
+  "description": "Bootcamp Home study Day 1 solutions - Compute Prime numbers from 0 to n",
+  "main": "app/library.js",
+  "scripts": {
+    "test": "jasmine tests/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuonifade/bootcamphomestudyday1.git"
+  },
+  "author": "Anuoluwapo Onifade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anuonifade/bootcamphomestudyday1/issues"
+  },
+  "homepage": "https://github.com/anuonifade/bootcamphomestudyday1#readme"
+}
