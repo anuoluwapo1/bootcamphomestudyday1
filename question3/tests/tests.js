@@ -1,59 +1,49 @@
-(function(){
-  'use strict';
-  describe("Car Class: Create a car, make it drive", function() {
+  
+'use strict';
 
-    it("The car should be a type of `object`, and an instance of the `Car` class", function() {
-      var honda = new Car('Honda');
-      expect(typeof honda).toEqual(typeof {});
-      expect(honda instanceof Car).toBeTruthy();
-    });
 
-    it("The car should be called 'General' if no name is passed as a parameter", function() {
-      var gm = new Car();
-      expect(gm.name).toEqual('General');
-      expect(gm.model).toBe('GM');
-    });
+var myApp = require('../app/library.js');
 
-    it("The car name and model should be a property of the car", function() {
-      var toyota  = new Car('Toyota', 'Corolla');
-      expect(toyota.name).toBe('Toyota');
-      expect(toyota.model).toBe('Corolla');
-    });
+describe("Employees class: determine the kind of employee", function() {
 
-    it("The car shoud have four (4) doors except its a Porshe or Koenigsegg", function() {
-      var opel  = new Car('Opel', 'Omega 3');
-      expect(opel.numOfDoors).toBe(4);
-
-      var porshe = new Car('Porshe', '911 Turbo');
-      expect(porshe.numOfDoors).toBe(2);
-      porshe.drive(5);
-      expect(porshe.speed).toBe('250 km/h');
-      expect((function(){return new Car('Koenigsegg', 'Agera R');}()).numOfDoors).toBe(2);
-    });
-
-    it("The car shoud have four (4) wheels except its a type of trailer", function() {
-      var man  = new Car('MAN', 'Truck', 'trailer');
-      expect(man.numOfWheels).toBe(8);
-      expect(man.isSaloon).toBe(false);
-
-      var koenigsegg = new Car('Koenigsegg', 'Agera R');
-      expect(koenigsegg.numOfWheels).toBe(4);
-      expect(koenigsegg.isSaloon).toBeTruthy();
-    });
-
-    it("The Trailer should have speed 0 km/h until you put `the pedal to the metal`", function() {
-      var man  = new Car('MAN', 'Truck', 'trailer');
-      expect(man.speed).toBe('0 km/h');
-      man.drive(7);
-      expect(man.speed).toBe('77 km/h');
-    });
-
-    it("The car drive function should return the instance of the Car class", function() {
-      var man  = new Car('MAN', 'Truck', 'trailer');
-      var drivingMan = man.drive(7);
-      expect(drivingMan instanceof Car).toBeTruthy();
-      expect(typeof drivingMan.drive).toBe(typeof (function (){}));
-      expect(man.speed).toBe(drivingMan.speed);
-    });
+  it("The emp should be a type of `object`, and an instance of the `Employee` class", function() {
+    var emp = new myApp.Employees();
+    expect(typeof emp).toEqual(typeof {});
+    expect(emp instanceof myApp.Employees).toBeTruthy();
   });
-})();
+
+  it("The Employee with first name 'Ade' and last name 'Emmanuel' should return 'Ade Emmanuel'", function() {
+      var emp = new myApp.Employees();
+      emp.setName('Ade', 'Emmanuel');
+      expect(emp.firstName + " " + emp.lastName).toEqual('Ade Emmanuel');
+  });
+
+  it("Trying to set name that is not a string should return 'invalid name'", function() {
+      var emp = new myApp.Employees();
+      expect(emp.setName(1,2)).toEqual('invalid name');
+  });
+
+  it("Trying to set age that is not an integer return 'invalid age'", function() {
+      var emp = new myApp.Employees();
+      expect(emp.setAge('twenty')).toEqual('invalid age');
+  });
+
+  it("Minimum Salary for Permanent staffs should return 10000.00", function() {
+      var emp = new myApp.Employees();
+      emp.setMinimumSalary("Permanent", 9);
+      expect(emp.minSalary).toEqual(150000.00);
+  });
+
+  it("A Permanent staff with salary 150000.00 is a manager should return false", function() {
+      var emp = new myApp.Employees();
+      var isManager = emp.isManager("Permanent", 150000.00);
+      expect(isManager).toEqual(false);
+  });
+
+  it("A Contract staff with salary 150000.00 is a manager should return true", function() {
+      var emp = new myApp.Employees();
+      var isManager = emp.isManager("Contract", 150000.00);
+      expect(isManager).toEqual(true);
+  });
+
+});
